@@ -1,0 +1,38 @@
+class PagesController < ApplicationController
+  def hit
+    begin
+      page.social_activities.create(social_activity)
+      page.update_score
+      render json: {}, status: :created
+    end
+  end
+
+  def score
+    if pages = Page.where(uuid: params[:uuid])
+      render json: pages, status: :okay
+    else
+      render json: {}, status: :not_found
+    end
+  end
+
+  def popular
+    pages = Page.top(params[:size])
+    render json: pages, status: :okay
+  end
+
+  private
+  def page
+    @page ||= Page.find_or_create_by(uuid: params[:uuid]) do |page|
+      page.url = params[:url]
+    end
+  end
+
+  def weighting
+    Weighting.find_by_field(params[:stat_type])
+  end
+
+  def social_activity
+    { value: 1, weighting: weighting, user_ip: params[:user_ip]}
+  end
+
+end

@@ -13,7 +13,7 @@ gem 'rabl'
 gem 'oj'
 
 gem 'httparty'
-gem 'activeadmin'
+gem 'activeadmin', github: 'activeadmin'
 
 group :development, :test do
   gem 'pry-rails'
