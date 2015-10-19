@@ -1,0 +1,12 @@
+/.bundle
+/log/*.log
+/tmp
+/public/uploads
+
+.DS_Store
+.ruby-version
+.env*
+
+config/database.yml
+
+/coverage
