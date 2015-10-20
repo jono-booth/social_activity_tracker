@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.1.6'
 
-gem 'rails', '4.1.5'
+gem 'rails', '4.2.3'
 gem 'pg'
 
 gem 'coffee-rails', '~> 4.0.0'
