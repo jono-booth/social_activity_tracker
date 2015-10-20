@@ -1,4 +1,8 @@
 class PagesController < ApplicationController
+
+  http_basic_authenticate_with name: Rails.application.secrets.http_basic_user,
+                               password: Rails.application.secrets.http_basic_password
+
   def hit
     begin
       page.social_activities.create(social_activity)

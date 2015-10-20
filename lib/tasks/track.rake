@@ -3,6 +3,7 @@ namespace :track do
 
   task pages: :environment do
     Page.all.each do |page|
+      p page.url
       page.track_social_activity
       page.update_score
     end

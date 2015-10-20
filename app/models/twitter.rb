@@ -4,10 +4,10 @@ class Twitter < SocialNetwork
   end
 
   def options
-    { url: @url }
+    { query: { url: @url } }
   end
 
   def stats
-    JSON.parse(social_activity).map { |array| { key: array.first, value: array.second } }
+    JSON.parse(social_activity.body).map { |array| { key: array.first, value: array.second } }
   end
 end

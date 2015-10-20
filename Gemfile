@@ -14,15 +14,19 @@ gem 'oj'
 
 gem 'httparty'
 gem 'activeadmin', github: 'activeadmin'
+gem 'devise'
 
 group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'dotenv-rails'
 end
 
 group :development do
   gem 'better_errors'
+  gem 'thin'
+  gem 'spring'
 end
 
 group :test do
