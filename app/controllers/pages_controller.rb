@@ -6,7 +6,7 @@ class PagesController < ApplicationController
   def stat
     begin
       page.social_activities.create(social_activity)
-      page.track_social_activity
+      page.track_social_activity if page.updated_at > 5.minutes.ago
       page.update_score
       render json: page, status: :created
     end
