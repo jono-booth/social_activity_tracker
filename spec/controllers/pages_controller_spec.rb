@@ -6,13 +6,13 @@ describe PagesController do
     allow_any_instance_of(ApplicationController).to receive(:authenticate_with_access_token).and_return(true)
   end
 
-  describe '#hit' do
+  describe '#stat' do
     let!(:weighting_a) { create(:weighting, value: 50, field: 'entry', network: "Laugh") }
     let!(:weighting_b) { create(:weighting, value: 5, field: 'page_view', network: "Laugh") }
 
-    let(:create_page) { post :hit, stat_type: weighting_a.field, url: "http://platform45.com", uuid: "0000", user_ip: "192.168.1.1"}
-    let(:create_page_view) { post :hit, stat_type: weighting_b.field, url: "http://platform45.com", uuid: "0000", user_ip: "192.168.1.1" }
-    let(:create_page_view_with_new_ip) { post :hit, stat_type: weighting_b.field, url: "http://platform45.com", uuid: "0000", user_ip: "192.168.1.2"}
+    let(:create_page) { post :stat, stat_type: weighting_a.field, url: "http://platform45.com", uuid: "0000", user_ip: "192.168.1.1"}
+    let(:create_page_view) { post :stat, stat_type: weighting_b.field, url: "http://platform45.com", uuid: "0000", user_ip: "192.168.1.1" }
+    let(:create_page_view_with_new_ip) { post :stat, stat_type: weighting_b.field, url: "http://platform45.com", uuid: "0000", user_ip: "192.168.1.2"}
 
     before :each do
       create_page

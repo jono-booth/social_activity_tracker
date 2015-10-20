@@ -7,7 +7,7 @@ class SocialNetwork
   end
 
   def social_activity
-    HTTParty.get(tracking_url, options)
+    HTTParty.get(tracking_url, options).body
   end
 
 end

@@ -1,9 +1,9 @@
 class PagesController < ApplicationController
 
   http_basic_authenticate_with name: Rails.application.secrets.http_basic_user,
-                               password: Rails.application.secrets.http_basic_password
+                               password: Rails.application.secrets.http_basic_password unless Rails.env.test?
 
-  def hit
+  def stat
     begin
       page.social_activities.create(social_activity)
       page.update_score
