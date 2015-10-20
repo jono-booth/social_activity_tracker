@@ -12,6 +12,9 @@ gem 'json'
 gem 'rabl'
 gem 'oj'
 
+gem 'therubyracer', platforms: :ruby
+gem 'turbolinks'
+
 gem 'httparty'
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'

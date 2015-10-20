@@ -123,6 +123,7 @@ GEM
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    libv8 (3.16.14.11)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -178,6 +179,7 @@ GEM
       activesupport (>= 3.0)
       i18n
       polyamorous (~> 1.2)
+    ref (2.0.0)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
     rspec-core (3.3.2)
@@ -223,6 +225,9 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
+    therubyracer (0.12.2)
+      libv8 (~> 3.16.14.0)
+      ref
     thin (1.6.3)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0)
@@ -233,6 +238,8 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
+    turbolinks (2.5.3)
+      coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.1)
@@ -272,7 +279,9 @@ DEPENDENCIES
   shoulda-matchers
   simplecov
   spring
+  therubyracer
   thin
+  turbolinks
   uglifier
   webmock
 
