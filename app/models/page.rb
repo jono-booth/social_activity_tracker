@@ -1,5 +1,5 @@
 class Page < ActiveRecord::Base
-  has_many :social_activities
+  has_many :social_activities, dependent: :destroy
 
   validates :url, uniqueness: true
   validates :url, :uuid, presence: true
