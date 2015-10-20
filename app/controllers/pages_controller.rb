@@ -8,7 +8,7 @@ class PagesController < ApplicationController
       page.social_activities.create(social_activity)
       page.track_social_activity
       page.update_score
-      render json: {}, status: :created
+      render json: page status: :created
     end
   end
 
