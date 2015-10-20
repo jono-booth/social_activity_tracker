@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   def stat
     begin
       page.social_activities.create(social_activity)
+      page.track_social_activity
       page.update_score
       render json: {}, status: :created
     end
