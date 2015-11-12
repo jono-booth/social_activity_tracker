@@ -4,6 +4,7 @@ ruby '2.1.6'
 
 gem 'rails', '4.2.3'
 gem 'pg'
+gem 'newrelic_rpm'
 
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'

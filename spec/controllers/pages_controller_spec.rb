@@ -3,7 +3,7 @@ require 'rails_helper'
 describe PagesController do
 
   before :each do
-    allow_any_instance_of(ApplicationController).to receive(:authenticate_with_access_token).and_return(true)
+    allow(controller).to receive(:http_basic_authenticate_with).and_return(true)
   end
 
   describe '#stat' do
@@ -29,6 +29,7 @@ describe PagesController do
 
     it "should not create a duplicate page" do
       expect{ create_page_view }.to change{ Page.all.size }.by 0
+      expect(response.body).to include("\"score\":200")
     end
 
     it "should create a social activity for a page view" do
