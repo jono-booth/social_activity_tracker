@@ -7,7 +7,7 @@ class PagesController < ApplicationController
     begin
       page.track_social_activity if page.updated_at > 5.minutes.ago
       page.social_activities.create(social_activity)
-      page.update_score
+      page.update(score: page.calculated_score)
       render json: page, status: :created
     rescue
       render json: {}, status: :unprocessible_entity

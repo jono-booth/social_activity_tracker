@@ -1,7 +1,6 @@
 class Page < ActiveRecord::Base
   has_many :social_activities, dependent: :destroy
 
-  validates :url, uniqueness: true
   validates :url, :uuid, presence: true
 
   scope :top, ->(n) { order('score DESC').limit(n) }
@@ -18,11 +17,9 @@ class Page < ActiveRecord::Base
     end
   end
 
-  def update_score
+  def calculated_score
     score = social_activities.map { |activity|
       activity.weighting.value * activity.value
     }.sum
-
-    update(score: score)
   end
 end
