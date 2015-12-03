@@ -15,8 +15,8 @@ class PagesController < ApplicationController
   end
 
   def score
-    if pages = Page.where(uuid: params[:uuid])
-      render json: pages, status: :okay
+    if page = Page.where(uuid: params[:uuid])
+      render json: page, status: :okay
     else
       render json: {}, status: :not_found
     end
