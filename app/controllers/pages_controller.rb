@@ -9,7 +9,7 @@ class PagesController < ApplicationController
       page.update(score: page.calculated_score)
 
       if params[:stat_type] == 'page_view' && page.updated_at > 5.minutes.ago
-        page.track_social_activity
+        page.delay.track_social_activity
       end
 
       render json: page, status: :created
