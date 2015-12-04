@@ -6,7 +6,7 @@ class SocialNetwork
     p "Tracking URL: #{@url}"
   end
 
-  def request
+  def response
     HTTParty.get(tracking_url, options)
   end
 
