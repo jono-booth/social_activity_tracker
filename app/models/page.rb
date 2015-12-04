@@ -18,7 +18,7 @@ class Page < ActiveRecord::Base
   end
 
   def calculated_score
-    score = social_activities.map { |activity|
+    social_activities.map { |activity|
       activity.weighting.value * activity.value
     }.sum
   end

@@ -1,7 +1,9 @@
 class PagesController < ApplicationController
 
-  http_basic_authenticate_with name: Rails.application.secrets.http_basic_user,
-                               password: Rails.application.secrets.http_basic_password
+  unless Rails.env.test?
+    http_basic_authenticate_with name: Rails.application.secrets.http_basic_user,
+                                 password: Rails.application.secrets.http_basic_password
+  end
 
   def stat
     begin

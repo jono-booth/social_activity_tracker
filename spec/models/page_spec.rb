@@ -34,17 +34,6 @@ describe Page do
     end
   end
 
-  describe '.update_score' do
-    before :each do
-      create_list(:laugh_page_view, 5, weighting: weighting_d, page: page)
-      page.update_score
-    end
-
-    it "should be the product of the value and the weighting value" do
-      expect(page.score).to eq 545
-    end
-  end
-
   describe '.top(n)' do
 
     let!(:page_last) { create(:page, score: 50) }

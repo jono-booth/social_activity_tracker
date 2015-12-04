@@ -2,10 +2,6 @@ require 'rails_helper'
 
 describe PagesController do
 
-  before :each do
-    allow(controller).to receive(:http_basic_authenticate_with).and_return(true)
-  end
-
   describe '#stat' do
     let!(:weighting_a) { create(:weighting, value: 50, field: 'entry', network: "Laugh") }
     let!(:weighting_b) { create(:weighting, value: 5, field: 'page_view', network: "Laugh") }
@@ -28,8 +24,8 @@ describe PagesController do
     end
 
     it "should not create a duplicate page" do
-      expect{ create_page_view }.to change{ Page.all.size }.by 0
-      expect(response.body).to include("\"score\":200")
+      expect{ create_page }.to change{ Page.all.size }.by 0
+      expect(response.body).to include("\"score\":50")
     end
 
     it "should create a social activity for a page view" do
