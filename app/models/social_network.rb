@@ -15,5 +15,4 @@ class SocialNetwork
       response.body
     end
   end
-
 end

@@ -7,7 +7,7 @@ class PagesController < ApplicationController
 
   def stat
     begin
-      page.social_activities.create(social_activity)
+      SocialActivities.create(page: page, social_activity)
       page.update(score: page.calculated_score)
 
       if params[:stat_type] == 'page_view' && page.updated_at > 5.minutes.ago
