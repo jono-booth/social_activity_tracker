@@ -3,5 +3,6 @@ class SocialActivity < ActiveRecord::Base
   belongs_to :weighting
 
   validates :weighting, uniqueness: { scope: [:page, :user_ip] }
-  validates :weighting, :value, presence: true
+  validates :page, :weighting, :value, presence: true
+
 end
