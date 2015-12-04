@@ -9,6 +9,7 @@ class PagesController < ApplicationController
     begin
       page.social_activities.create(social_activity)
       page.update(score: page.calculated_score)
+      page.save
 
       if params[:stat_type] == 'page_view' && page.updated_at > 5.minutes.ago
         page.delay.track_social_activity
