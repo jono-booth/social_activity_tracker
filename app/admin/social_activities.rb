@@ -6,5 +6,6 @@ ActiveAdmin.register SocialActivity do
     column :stat_type do |activity| activity.weighting.field end
     column :value
     column :url do |activity| activity.page.url end
+    column :user_ip
   end
 end
