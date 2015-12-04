@@ -14,6 +14,9 @@ class PagesController < ApplicationController
         page.delay.track_social_activity
       end
 
+      p "Created with score: #{page.score}"
+      p page.inspect
+
       render json: page, status: :created
     rescue
       render json: {}, status: :unprocessible_entity
