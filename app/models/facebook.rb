@@ -9,10 +9,6 @@ class Facebook < SocialNetwork
   end
 
   def stats
-    if activity = JSON.parse(social_activity).first
-      activity.map { |array| { key: array.first, value: array.second } }
-    else
-      {}
-    end
+    social_activity.first.map { |array| { key: array.first, value: array.second } }
   end
 end

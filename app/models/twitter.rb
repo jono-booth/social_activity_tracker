@@ -8,10 +8,7 @@ class Twitter < SocialNetwork
   end
 
   def stats
-    if activity = JSON.parse(social_activity)
-      activity.map { |array| { key: array.first, value: array.second } }
-    else
-      {}
-    end
+    social_activity.map { |array| { key: array.first, value: array.second } }
   end
+
 end

@@ -30,7 +30,7 @@ describe PagesController do
 
     it "should create a social activity for a page view" do
       create_page_view
-      expect(Page.first.score).to eq 55
+      expect(Page.first.calculated_score).to eq 55
     end
 
     it "only create 1 page view per user ip" do

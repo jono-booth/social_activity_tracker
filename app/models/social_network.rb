@@ -6,13 +6,11 @@ class SocialNetwork
     p "Tracking URL: #{@url}"
   end
 
-  def response
-    HTTParty.get(tracking_url, options)
-  end
-
   def social_activity
     if response.code == 200
-      response.body
+      JSON.parse(response_body)
+    else
+      {}
     end
   end
 end

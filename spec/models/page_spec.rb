@@ -3,8 +3,8 @@ require 'rails_helper'
 describe Page do
 
   before do
-    allow_any_instance_of(Facebook).to receive(:social_activity).and_return('[{"url":"platform45.com","normalized_url":"http:\/\/www.platform45.com\/","share_count":15,"like_count":35,"comment_count":19,"total_count":69,"click_count":0,"comments_fbid":"10150460653296902","commentsbox_count":0}]')
-    allow_any_instance_of(Twitter).to receive(:social_activity).and_return('{"count":75,"url":"http:\/\/platform45.com\/"}')
+    allow_any_instance_of(Facebook).to receive(:social_activity).and_return([{"url"=>"platform45.com", "normalized_url"=>"http://www.platform45.com/", "share_count"=>15, "like_count"=>35, "comment_count"=>19, "total_count"=>69, "click_count"=>0, "comments_fbid"=>"10150460653296902", "commentsbox_count"=>0}])
+    allow_any_instance_of(Twitter).to receive(:social_activity).and_return({"count"=>75, "url"=>"http://platform45.com/"})
   end
 
   let!(:weighting_a) { create(:weighting, value: 2, field: 'like_count', network: "Facebook") }
