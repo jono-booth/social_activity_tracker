@@ -12,7 +12,7 @@ class SocialNetwork
 
   def social_activity
     if response.code == 200
-      request.body
+      response.body
     end
   end
 
