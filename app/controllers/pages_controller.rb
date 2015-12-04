@@ -6,19 +6,16 @@ class PagesController < ApplicationController
   end
 
   def stat
-    social_activity = page.social_activities.build(social_activity)
-    if social_activity.save
+    begin
+      page.social_activities.create(social_activity)
       page.update(score: page.calculated_score)
 
       if params[:stat_type] == 'page_view' && page.updated_at > 5.minutes.ago
         page.delay.track_social_activity
       end
 
-      p "Created with score: #{page.score}"
-      p page.inspect
-
       render json: page, status: :created
-    else
+    rescue
       render json: {}, status: :unprocessible_entity
     end
   end
